@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-size: 2rem;
+  background-image: url(/images/wood-white.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  border: 2vw solid transparent;
+  border-image: url(/images/wood.jpeg) 50 stretch;
+  background-image: url(/images/wood.jpeg);
+  max-width: 400px;
+  max-height: 400px;
+  width: 100vw;
+  height: 100vw;
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.75);
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .box:nth-child(n + 1):nth-child(-n + 8):nth-child(even),
+.container .box:nth-child(n + 17):nth-child(-n + 24):nth-child(even),
+.container .box:nth-child(n + 33):nth-child(-n + 40):nth-child(even),
+.container .box:nth-child(n + 49):nth-child(-n + 56):nth-child(even),
+.container .box:nth-child(n + 9):nth-child(-n + 16):nth-child(odd),
+.container .box:nth-child(n + 25):nth-child(-n + 32):nth-child(odd),
+.container .box:nth-child(n + 41):nth-child(-n + 48):nth-child(odd),
+.container .box:nth-child(n + 57):nth-child(-n + 64):nth-child(odd) {
+  background-color: rgba(135, 50, 0, 0.5);
+}
+
+.box:nth-child(n + 1):nth-child(-n + 16) {
+  color: black;
+}
+
+.box:nth-child(n + 49) {
+  color: white;
+}
+
+.container .box:nth-child(53) .box-item {
+  animation-name: first-move;
+  animation-duration: 6s;
+}
+
+.container .box:nth-child(14) .box-item {
+  animation-name: second-move;
+  animation-duration: 4s;
+  animation-delay: 2s;
+} 
+
+.container .box:nth-child(60) .box-item {
+  animation-name: third-move;
+  animation-duration: 2s;
+  animation-delay: 4s;
+}
+
+@keyframes first-move {
+  50%{
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes second-move {
+  50%{
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
+
+@keyframes third-move {
+  100% {
+    transform: translate(200px, -200px);
+  }
+}
